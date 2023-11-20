@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 09:36 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `myresources`
@@ -39,8 +21,17 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`CategoryID`, `NomCategorie`) VALUES
 (13, 'categorie1'),
 (40, 'categorie2');
+----------------------------------------------------------
+
+SELECT squad S ,utilisateur U ,project P WHERE U.UserID=S.UserID and S.ProjectID=P.ProjectID and U.Roles="responsable" GROUP BY Roles;
 
 -- -------------------------------------------------------- 
+SELECT * FROM utilisateurs 
+ORDER BY RAND()
+--------------------------------------------------------------
+SELECT * FROM `projets` 
+where DateDebut and DateFin BETWEEN '2023-09-01' AND '2023-11-22'
+------------------------------------------------------------------
 DELIMITER //
 
 CREATE PROCEDURE GetProjectsInSquad(IN squadIdParam INT)
